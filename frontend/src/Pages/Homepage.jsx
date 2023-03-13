@@ -116,10 +116,12 @@ const Homepage = () => {
           <h4 className='text-2xl font-bold'>Our Menus</h4>
         </div>
 
-        <div className='flex flex-col md:flex-row items-center justify-between md:mx-20 lg:mx-20 gap-12 md:gap-8 sm:gap:12'>
+        <div className='flex flex-col md:flex-row items-center justify-between md:mx-20 lg:mx-20 gap-6 md:gap-6 sm:gap:12'>
           <MenuCard image={food1} icon={<VscArrowSmallRight />} title='Starters' />
           <MenuCard image={food2} icon={<VscArrowSmallRight />} title='Beakfast' />
           <MenuCard image={food3} icon={<VscArrowSmallRight />} title='Lunch' />
+          <MenuCard image={food4} icon={<VscArrowSmallRight />} title='Dinner' />
+          <MenuCard image={food4} icon={<VscArrowSmallRight />} title='Dinner' />
           <MenuCard image={food4} icon={<VscArrowSmallRight />} title='Dinner' />
         </div>
       </Section>

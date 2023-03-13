@@ -9,6 +9,7 @@ import Layout from './Layout'
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
+  const [amount, setAmount] = useState(3)
 
   const menuHandler = () => {
     setOpen(!open);
@@ -30,10 +31,10 @@ const Navbar = () => {
             ))
           }
 
-          <button className='md:ml-28 lg:ml-72 bg-red-700 text-sm text-white px-4 py-2 rounded-full flex items-center gap-2'>
+          <Link to='/cart' className='md:ml-28 lg:ml-72 bg-red-700 text-sm text-white px-4 py-2 rounded-full flex items-center gap-2'>
             <FaShoppingCart />
-            CART
-          </button>
+            {amount}
+          </Link>
         </ul>
 
         <FiMenu onClick={menuHandler} className='md:hidden text-3xl text-red-900 cursor-pointer' />
@@ -49,7 +50,7 @@ const Navbar = () => {
           }
           <Link onClick={menuHandler} to='/cart' className='bg-red-700 text-sm w-full text-white px-4 py-2 rounded-full flex items-center justify-center gap-2 mb-3'>
             <FaShoppingCart />
-            CART
+            {amount}
           </Link>
         </ul>
       )}
