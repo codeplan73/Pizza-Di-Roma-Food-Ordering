@@ -1,30 +1,39 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, {useState} from 'react'
 import AmountButton from './AmountButton'
+import { useSelector, useDispatch } from 'react-redux'
+import {addToCart} from '../redux/features/cart/cartSlice'
+import { useNavigate } from 'react-router-dom'
 
+const AddToCart = ({id, name, price}) => {
+    const [amount, setAmount] = useState(0)
 
-const AddToCart = () => {
-    const [quantity, setQuantity] = useState(0)
+    const dispatch = useDispatch()
+    const navigate = useNavigate();
 
-    const increase = () => {
-        setQuantity(quantity + 1)
+    const {cartItems} = useSelector((state) => state.cart)
+
+    const handleAddToCart = () => {
+        console.log(`id:${id} name:${name} price:${price} amount: ${amount}`)
+        dispatch(addToCart({id, name, price, amount}))
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        navigate('/cart')
     }
 
-    const descrease = () => {
-        if(quantity !== 1 || quantity !== 0){ 
-            setQuantity(quantity - 1)
-        }
+    const increaseItem = () => {
+        setAmount(amount + 1)
     }
 
-    const addToCart = () => {
-
+    const decreaseItem = ()=>{
+        setAmount(amount - 1)
     }
+
+    
 
 
     return (
         <div className=''>
-            <AmountButton increase={increase} decrease={descrease} quantity={quantity} />
-            <Link to='/cart' onClick={addToCart} className='text-xl font-semibold bg-burgundy-900 text-white px-4 py-2 rounded'>Add to Cart</Link>
+            <AmountButton increase={increaseItem} decrease={decreaseItem} amount={amount} />
+            <button to='/cart' onClick={handleAddToCart} className='text-xl font-semibold bg-burgundy-900 text-white px-4 py-2 rounded'>Add to Cart</button>
         </div>
     )
 }

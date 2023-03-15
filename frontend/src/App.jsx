@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom'
 
 import { Navbar, Footer } from './components'
 import { Homepage, About, Meals, Meal, Cart, Error } from './Pages'
+import {calculateTotal} from './redux/features/cart/cartSlice'
+import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
+  const {cartItems} = useSelector((state) => state.cart)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(calculateTotal())
+  }, [cartItems, dispatch])
+
+
   return (
     <div>
       <Navbar />

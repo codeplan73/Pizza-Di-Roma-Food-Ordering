@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaShoppingCart } from 'react-icons/fa'
 import { FiMenu } from 'react-icons/fi'
+import { useSelector } from 'react-redux'
 
 import logo from './../assets/logo.png'
 import links from '../data.json'
@@ -9,7 +10,8 @@ import Layout from './Layout'
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
-  const [amount, setAmount] = useState(3)
+  
+  const {amount} = useSelector((store) => store.cart)
 
   const menuHandler = () => {
     setOpen(!open);
@@ -42,7 +44,7 @@ const Navbar = () => {
 
       {open && (
         <ul className='absolute flex flex-col items-start w-11/12 p-2 font-bold rounded-md shadow-2xl bg-slate-100 text-burgundy-900 z-50 top-28'>
-          {
+          { 
             links.map((link, id) => (
               <Link className='transition ease-in-out delay-150 hover:-translate-y-1 duration-300 m-2 cursor-pointer' onClick={menuHandler} to={link.path} key={link.id}>{link.pathName}</Link>
             ))

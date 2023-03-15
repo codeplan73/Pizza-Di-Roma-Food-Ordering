@@ -14,7 +14,7 @@ const CartItem = () => {
             </div>
         </div>
         <div>
-            <AmountButton quantity={5}/>
+            <AmountButton amount={5}/>
         </div>
         {/* <AmountButton increase={increase} decrease={descrease} quantity={quantity}/> */}
         <hr />

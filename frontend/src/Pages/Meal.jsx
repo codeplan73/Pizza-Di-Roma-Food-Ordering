@@ -35,8 +35,7 @@ const Meal = () => {
               <span className='text-slate-700 font-bold'>cooking Time: {meal.cookingTime} Min</span>
               <span className='text-slate-700 font-bold'>Serving Size: {meal.servingSize}</span>
               <hr />
-              <AddToCart />
-              {/* <span className='text-slate-600 font-normal leading-relaxed text-justify'><span className='text-slate-700 font-bold'>Ingredients:</span> {meal.ingredients}</span> */}
+              <AddToCart {...meal}/>
             </div>
 
           </div>
