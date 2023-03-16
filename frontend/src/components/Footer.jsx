@@ -26,20 +26,20 @@ const Footer = () => {
           <p className='text-sm text-gray-200 text-justify'>Lorem ipsum dolor sit amet consectetur em ipsum dolor sit amet consectetur adipisicing elit. Deleniti, voluptatibus.</p>
         </div>
 
-        <div className='w-full md:w-2/12 flex flex-col gap-4 text-gray-300 mb-10 md:mb-0 items-center md:items-start'>
+        <div className='w-full lg:w-2/12 flex flex-col gap-4 text-gray-300 mb-10 md:mb-0 items-center md:items-start'>
           <h4 className='text-sm font-bold text-white'>Company</h4>
           <Link className='text-xs' to='/'>Home</Link>
           <Link className='text-xs' to='/about'>About</Link>
           <Link className='text-xs' to='/contact'>Contact</Link>
         </div>
-        <div className='w-full md:w-2/12 flex flex-col gap-4 text-gray-300 mb-10 md:mb-0 items-center md:items-start'>
+        <div className='w-full lg:w-2/12 flex flex-col gap-4 text-gray-300 mb-10 md:mb-0 items-center md:items-start'>
           <h4 className='text-sm font-bold text-white'>Features</h4>
           <Link  className='text-xs' to='/'>Blog</Link>
           <Link  className='text-xs' to='/about'>Support</Link>
           <Link className='text-xs' to='/contact'>Privacy</Link>
           <Link className='text-xs' to='/contact'>Security</Link>
         </div>
-        <div className='w-full md:w-3/12 flex flex-col gap-4 text-gray-300 items-center md:items-start'>
+        <div className='w-full md: lg:w-3/12 flex flex-col gap-4 text-gray-300 items-center md:items-start'>
           <h4 className='text-sm font-bold text-white'>Features</h4>
           <p className='flex gap-3 items-center'>
             <BsFillTelephoneInboundFill className='text-orange-500 text-xl'/>
