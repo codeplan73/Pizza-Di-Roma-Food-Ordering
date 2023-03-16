@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import {addToCart} from '../redux/features/cart/cartSlice'
 import { useNavigate } from 'react-router-dom'
 
-const AddToCart = ({id, name, price}) => {
+const AddToCart = ({id, name, price, imageUrl}) => {
     const [amount, setAmount] = useState(0)
 
     const dispatch = useDispatch()
@@ -13,8 +13,7 @@ const AddToCart = ({id, name, price}) => {
     const {cartItems} = useSelector((state) => state.cart)
 
     const handleAddToCart = () => {
-        console.log(`id:${id} name:${name} price:${price} amount: ${amount}`)
-        dispatch(addToCart({id, name, price, amount}))
+        dispatch(addToCart({id, name, price, amount, imageUrl}))
         localStorage.setItem('cart', JSON.stringify(cartItems));
         navigate('/cart')
     }
@@ -26,9 +25,6 @@ const AddToCart = ({id, name, price}) => {
     const decreaseItem = ()=>{
         setAmount(amount - 1)
     }
-
-    
-
 
     return (
         <div className=''>

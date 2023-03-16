@@ -29,13 +29,13 @@ const cartSlice = createSlice({
         },
 
         addToCart: (state, action) => {
-            const {id, name, price, amount} = action.payload;
+            const {id, name, price, imageUrl, amount} = action.payload;
             const existingItemsIndex = state.cartItems.findIndex((item) => item.id === id);
 
             if(existingItemsIndex >= 0){
                 state.cartItems[existingItemsIndex].amount += amount;
             }else{
-                state.cartItems.push({id, name, price, amount})
+                state.cartItems.push({id, name, price, imageUrl, amount})
             }
         },
         increaseItem: (state, {payload}) => {

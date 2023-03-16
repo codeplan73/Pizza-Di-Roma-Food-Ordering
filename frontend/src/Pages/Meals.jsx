@@ -12,7 +12,7 @@ const Meals = () => {
 
   const { meals, loading } = useSelector((state) => state.meal);
   const dispatch = useDispatch();
-
+ 
   useEffect(() => {
     dispatch(getAllMeals())
   }, [dispatch])

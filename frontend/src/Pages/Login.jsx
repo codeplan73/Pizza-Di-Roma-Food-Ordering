@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Layout, Input } from '../components'
+import { Input } from '../components'
 import { Link } from 'react-router-dom'
 
 const Login = () => {
