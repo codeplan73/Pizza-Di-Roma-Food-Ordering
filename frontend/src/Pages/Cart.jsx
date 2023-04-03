@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Layout, Hero, Section, CartItem } from '../components'
+import { Layout, Hero, Section, CartItem, EmptyCart } from '../components'
 import { clearCart } from '../redux/features/cart/cartSlice'
 
 const Cart = () => {
@@ -34,7 +34,7 @@ const Cart = () => {
             </div>
           </Section>
         ) : (
-          <h1>Your cart is empty</h1>
+          <EmptyCart />
         )}
       </Layout>
     </>

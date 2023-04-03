@@ -1,6 +1,7 @@
 export {default as AddToCart} from './AddToCart'
 export {default as AmountButton} from './AmountButton'
 export {default as CartItem} from './CartItem'
+export {default as EmptyCart} from './EmptyCart'
 export {default as FeaturedCard} from './FeaturedCard'
 export {default as Footer} from './Footer'
 export {default as Hero} from './Hero'
