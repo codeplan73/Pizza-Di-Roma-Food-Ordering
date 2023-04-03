@@ -1,6 +1,5 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { FiMinus, FiPlus } from 'react-icons/fi'
 
 import AmountButton from './AmountButton'
 import {
@@ -11,8 +10,6 @@ import {
 
 const CartItem = ({ items }) => {
   const dispatch = useDispatch()
-  // const {cartItems, total} = useSelector((state) => state.cart);
-
 
   return (
     <>
@@ -33,16 +30,6 @@ const CartItem = ({ items }) => {
           </div>
           <div>
             <AmountButton increase={() => dispatch(increaseItem(item.id))} decrease={() => dispatch(decreaseItem(item.id))} amount={item.amount} />
-
-            {/* <div className="flex gap-4 items-center my-4 font-bold text-md md:text-2xl">
-              <button onClick={() => dispatch(decreaseItem(item.id))}>
-                <FiMinus />
-              </button>
-              <h2>{item.amount}</h2>
-              <button onClick={() => dispatch(increaseItem(item.id))}>
-                <FiPlus />
-              </button>
-            </div> */}
           </div>
 
           <hr />
