@@ -1,6 +1,5 @@
 import React from 'react'
 import AmountButton from './AmountButton'
-import food from '../assets/food-1.jpeg'
 
 const CartItem = ({items}) => {
   console.log(items, 'Cart Items')
