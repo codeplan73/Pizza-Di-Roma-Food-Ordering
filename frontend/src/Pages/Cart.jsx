@@ -1,11 +1,12 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Layout, Hero, Section, CartItem } from '../components'
-
+import {clearCart} from '../redux/features/cart/cartSlice'
 
 const Cart = () => {
   const dispatch = useDispatch();
   const {cartItems, total} = useSelector((state) => state.cart);
+
   return (
 
     <>
@@ -20,7 +21,7 @@ const Cart = () => {
               <p>${total}</p>
             </div>
             <div className='flex gap-4'>
-              <button className='text-red-700 font-semibold text-sm md:text-lg border border-red-700 py-1 px-3 hover:bg-red-800 hover:text-white rounded'>Clear Cart</button>
+              <button onClick={() => dispatch(clearCart())} className='text-red-700 font-semibold text-sm md:text-lg border border-red-700 py-1 px-3 hover:bg-red-800 hover:text-white rounded'>Clear Cart</button>
               <button className='text-red-700 font-semibold text-sm md:text-lg border border-red-700 py-1 px-3 hover:bg-red-800 hover:text-white rounded'>Proceed to Checkout</button>
             </div>
           </div>
@@ -28,6 +29,6 @@ const Cart = () => {
       </Layout>
     </>
   )
-}
+} 
 
 export default Cart
