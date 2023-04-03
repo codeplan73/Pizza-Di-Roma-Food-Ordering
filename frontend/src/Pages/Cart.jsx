@@ -2,10 +2,22 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Layout, Hero, Section, CartItem, EmptyCart } from '../components'
 import { clearCart } from '../redux/features/cart/cartSlice'
+import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
   const dispatch = useDispatch()
   const { cartItems, total } = useSelector((state) => state.cart)
+  const { user } = useSelector((state) => state.auth)
+
+  const navigate = useNavigate()
+
+  const handleCheckout = () => {
+    if(!user){
+      navigate('/login')
+    }else{
+      navigate('/checkout')
+    }
+  }
 
   return (
     <>
@@ -27,7 +39,7 @@ const Cart = () => {
                 >
                   Clear Cart
                 </button>
-                <button className="text-red-700 font-semibold text-sm md:text-lg border border-red-700 py-1 px-3 hover:bg-red-800 hover:text-white rounded">
+                <button onClick={handleCheckout} className="text-red-700 font-semibold text-sm md:text-lg border border-red-700 py-1 px-3 hover:bg-red-800 hover:text-white rounded">
                   Proceed to Checkout
                 </button>
               </div>
