@@ -19,7 +19,7 @@ const register = async (req, res) => {
     const tokenUser = { name: user.name, userId: user._id, role: user.role }
 
     attachCookiesToResponse({ res, user: tokenUser })
-    res.status(StatusCodes.CREATED).json({ user: tokenUser })
+    res.status(StatusCodes.CREATED).json(tokenUser)
 }
 
 const login = async (req, res) => {
@@ -41,7 +41,7 @@ const login = async (req, res) => {
 
     const tokenUer = createTokenUser(user);
     attachCookiesToResponse({ res, user: tokenUer });
-    res.status(StatusCodes.OK).json({ use: tokenUer });
+    res.status(StatusCodes.OK).json( tokenUer );
 }
 
 

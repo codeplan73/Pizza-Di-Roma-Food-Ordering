@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import toast, { Toaster } from 'react-hot-toast';
 import { login } from '../redux/features/auth/authSlice'
 
 const schema = z.object({
@@ -11,7 +12,10 @@ const schema = z.object({
 })
 
 const Login = () => {
+    const {user, loading, error, success, message} = useSelector(state => state.auth)
   const dispatch = useDispatch();
+
+  const notify = () => toast.error(message)
 
   const {
     register,
@@ -23,8 +27,9 @@ const Login = () => {
 
   const onSubmit = (data) => {
     dispatch(login(data));
+    if(error) notify();
+    // clearData();
   }
-
 
   return (
     <div className='flex flex-col items-center gap-4 py-10'>
@@ -62,6 +67,13 @@ const Login = () => {
 
       </form>
       <Link to='/register' className='text-orange-700 font-semibold'>No account yet? Signup now</Link>
+
+   <button onClick={notify}>Make me a toast</button>
+
+<Toaster
+  position="bottom-right"
+  reverseOrder={false}
+/>
     </div>
   )
 }
