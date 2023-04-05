@@ -12,7 +12,7 @@ const schema = z.object({
 })
 
 const Login = () => {
-    const {user, loading, error, success, message} = useSelector(state => state.auth)
+  const { user, loading, error, success, message } = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
   const notify = () => toast.error(message)
@@ -27,7 +27,7 @@ const Login = () => {
 
   const onSubmit = (data) => {
     dispatch(login(data));
-    if(error) notify();
+    if (error) notify();
     // clearData();
   }
 
@@ -68,12 +68,12 @@ const Login = () => {
       </form>
       <Link to='/register' className='text-orange-700 font-semibold'>No account yet? Signup now</Link>
 
-   <button onClick={notify}>Make me a toast</button>
+      <button onClick={notify}>Make me a toast</button>
 
-<Toaster
-  position="bottom-right"
-  reverseOrder={false}
-/>
+      <Toaster
+        position="bottom-right"
+        reverseOrder={false}
+      />
     </div>
   )
 }
