@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { useDispatch, useSelector } from 'react-redux'
 import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom'
 import { login } from '../redux/features/auth/authSlice'
 
 const schema = z.object({
@@ -14,6 +15,7 @@ const schema = z.object({
 const Login = () => {
   const { user, loading, error, success, message } = useSelector(state => state.auth);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const notify = () => toast.error(message)
 
@@ -27,7 +29,11 @@ const Login = () => {
 
   const onSubmit = (data) => {
     dispatch(login(data));
-    if (error) notify();
+    if (error){notify();
+    }else if(success) {
+      navigate('/meals')
+    }
+
     // clearData();
   }
 
