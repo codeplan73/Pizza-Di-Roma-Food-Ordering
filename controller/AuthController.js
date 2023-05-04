@@ -2,7 +2,7 @@ const User = require('../model/User');
 const { StatusCodes } = require("http-status-codes");
 const CustomError = require('../errors/');
 const { attachCookiesToResponse, createTokenUser } = require('./../utils')
-
+ 
 const register = async (req, res) => {
     const { email, name, password } = req.body;
     const emailAlreadyExists = await User.findOne({ email })
