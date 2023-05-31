@@ -33,7 +33,7 @@ const Meals = () => {
               ))
             }
           </div>
-
+ 
         </Section>
 
       </Layout>
